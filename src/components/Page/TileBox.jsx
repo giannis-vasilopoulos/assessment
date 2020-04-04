@@ -1,9 +1,15 @@
 import React from "react";
+import MoreBtn from "./MoreBtn";
 
 const TileBox = ({ tile }) => {
   return (
     <div className="page__tilebox">
-      <h3>{tile.title}</h3>
+      <div className="page__tilebox-wrapper">
+        <img src={`${process.env.PUBLIC_URL}/img/${tile.icon}.png`} />
+        <h3 className="page__tilebox-title">{tile.title}</h3>
+        <p className="page__tilebox-content">{tile.description}</p>
+        <MoreBtn label={tile.link} />
+      </div>
     </div>
   );
 };

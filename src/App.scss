@@ -11,10 +11,16 @@ ul {
 }
 .main-content {
   margin-top: 80px;
+  min-height: 70vh;
+  margin-bottom: 100px;
 }
 .page {
   &__title {
     text-align: center;
     color: #071e57;
   }
+}
+.learn-more-btn {
+  display: flex;
+  align-items: flex-end;
 }

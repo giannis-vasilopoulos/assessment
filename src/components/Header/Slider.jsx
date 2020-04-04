@@ -6,8 +6,9 @@ const HeaderSlider = ({ slider: sliderItems }) => {
   const settings = {
     dots: true,
     infinite: true,
-    // autoplay: true,
+    autoplay: true,
     arrows: false,
+    autoplaySpeed: 4000,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
