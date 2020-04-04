@@ -45,3 +45,29 @@
     }
   }
 }
+
+.header-slider {
+  background-color: #404859;
+  .slick-dots {
+    bottom: 45px;
+    li {
+      button {
+        &:before {
+          font-size: 0;
+          width: 14px;
+          height: 14px;
+          background-color: #404859;
+          border-radius: 100%;
+          border: 1px solid #fff;
+        }
+      }
+      &.slick-active {
+        button {
+          &:before {
+            background-color: #1292ee;
+          }
+        }
+      }
+    }
+  }
+}

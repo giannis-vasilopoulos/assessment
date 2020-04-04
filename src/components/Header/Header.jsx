@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
-
-const Header = () => {
+import HeaderSlider from "./Slider";
+const Header = ({ menu, slider }) => {
   return (
     <header className="header">
       <div className="container">
-        <Navbar />
+        <Navbar menu={menu} />
+        <HeaderSlider slider={slider} />
       </div>
     </header>
   );
