@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import Page from "./components/Page";
 import NotFound from "./components/NotFound";
 import Header from "./components/Header/Header";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (

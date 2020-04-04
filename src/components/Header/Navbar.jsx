@@ -1,16 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+
+import "./Header.scss";
 
 const Navbar = () => {
   return (
-    <ul>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/page">Page 2</Link>
-      </li>
-    </ul>
+    <nav className="header-nav">
+      <ul className="header-nav__links">
+        <li className="header-nav__link-item">
+          <NavLink exact activeClassName="is-active" to="/">
+            Home
+          </NavLink>
+        </li>
+        <li className="header-nav__link-item">
+          <NavLink activeClassName="is-active" to="/page">
+            Page 2
+          </NavLink>
+        </li>
+      </ul>
+      <div className="header-nav__search">
+        <FaSearch />
+      </div>
+    </nav>
   );
 };
 

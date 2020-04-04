@@ -1,0 +1,47 @@
+.header {
+  background-color: #404859;
+  color: #fff;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 25px;
+
+  &__links {
+    list-style-type: none;
+    display: flex;
+  }
+
+  &__link-item {
+    a {
+      position: relative;
+      color: #cacaca;
+      padding: 20px;
+      text-decoration: none;
+      display: block;
+      &.is-active {
+        color: #fff;
+        &:after {
+          content: "";
+          width: 10px;
+          height: 10px;
+          display: block;
+          border-radius: 100%;
+          margin: auto;
+          margin-top: 13px;
+          background-color: #2ed47d;
+        }
+      }
+    }
+  }
+
+  &__search {
+    svg {
+      width: 29px;
+      height: 25px;
+      cursor: pointer;
+      fill: #cacaca;
+    }
+  }
+}
