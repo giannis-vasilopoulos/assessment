@@ -1,0 +1,11 @@
+.page {
+  &__tilebox {
+    text-align: center;
+    background-color: #fff;
+  }
+
+  &__tiles-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

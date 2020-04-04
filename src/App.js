@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Home from "./components/Home";
-import Page from "./components/Page";
-import NotFound from "./components/NotFound";
+import Home from "./pages/Home";
+import Page from "./pages/Page";
+import NotFound from "./pages/NotFound";
 import Header from "./components/Header/Header";
 import API from "./components/common/api";
 
@@ -12,37 +12,42 @@ class App extends Component {
   state = {
     menu: [],
     slider: [],
+    page: null,
   };
 
   async componentDidMount() {
     try {
-      const [menu, slider] = await Promise.all([
-        API.get(`menu`).then((res) => {
-          return res.data;
-        }),
-        API.get(`slider`).then((res) => {
-          return res.data;
-        }),
+      const [menu, slider, page] = await Promise.all([
+        API.get(`menu`),
+        API.get(`slider`),
+        API.get(`page`),
       ]);
 
-      this.setState({ menu, slider });
+      this.setState({
+        menu: menu.data,
+        slider: slider.data,
+        page: page.data[0],
+      });
     } catch (err) {
       console.log(err);
     }
   }
 
   render() {
-    const { menu, slider } = this.state;
+    const { menu, slider, page } = this.state;
     return (
       <div>
         <Header menu={menu} slider={slider} />
-        <div className="container">
+        <div className="container main-content">
           <Switch>
             {/* <Route
              path="/products"
              render={(props) => <Products sortBy="newest" {...props} />}
             /> */}
-            <Route path="/page2" component={Page} />
+            <Route
+              path="/page2"
+              render={(props) => <Page page={page} {...props} />}
+            />
             <Route path="/not-found" component={NotFound} />
             <Route path="/home" exact component={Home} />
             <Redirect to="/not-found" />

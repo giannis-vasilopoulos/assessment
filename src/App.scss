@@ -9,3 +9,12 @@ ul {
   max-width: 1170px;
   margin: auto;
 }
+.main-content {
+  margin-top: 80px;
+}
+.page {
+  &__title {
+    text-align: center;
+    color: #071e57;
+  }
+}
