@@ -5,8 +5,9 @@ import Page from "./pages/Page";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header/Header";
 import Masonry from "./components/Home/Masonry";
-import API from "./components/common/api";
+import Services from "./components/Home/Services";
 
+import API from "./components/common/api";
 import "./App.scss";
 
 class App extends Component {
@@ -52,7 +53,18 @@ class App extends Component {
             />
             <Route path="/not-found" component={NotFound} />
             <Route
-              path="/home"
+              path="/services"
+              exact
+              render={(props) => (
+                <Home
+                  title={home.description}
+                  children={<Services services={section2} />}
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/"
               exact
               render={(props) => (
                 <Home

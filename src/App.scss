@@ -5,6 +5,9 @@ body {
 ul {
   margin: 0;
 }
+h2 {
+  color: #071e57;
+}
 .container {
   max-width: 1170px;
   margin: auto;
@@ -23,4 +26,7 @@ ul {
 .learn-more-btn {
   display: flex;
   align-items: flex-end;
+}
+.page__home {
+  margin-top: 55px;
 }

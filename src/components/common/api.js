@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: `https://voda-react-assessment.herokuapp.com/`,
+  baseURL: process.env.REACT_APP_API_URL,
 });

@@ -1,14 +1,15 @@
 import React from "react";
+import { TiEyeOutline } from "react-icons/ti";
 
 const Masonry = ({ images }) => {
-  //   const [section1, section2] = home.sections;
   return (
     <div className="page__home-masonry">
       {images.map((item) => {
         return (
           <div key={item.title} className="page__masonry-item">
-            <img src={item.img} />
+            <img src={item.img} alt={item.title} />
             <div className="page__masonry-item--hover">
+              <TiEyeOutline />
               <p>{item.title}</p>
             </div>
           </div>

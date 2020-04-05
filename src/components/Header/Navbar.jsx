@@ -14,7 +14,10 @@ const Navbar = ({ menu }) => {
               <NavLink
                 exact
                 activeClassName="is-active"
-                to={`/${item.title.toLowerCase().replace(/\s+/g, "")}`}
+                to={`/${item.title
+                  .toLowerCase()
+                  .replace(/\b(home)\b/gi, "")
+                  .replace(/\s+/g, "")}`}
               >
                 {item.title}
               </NavLink>
