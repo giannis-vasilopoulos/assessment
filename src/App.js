@@ -19,20 +19,26 @@ class App extends Component {
     searchToggle: false,
     pageList: [
       {
+        _id: 1,
+        parent: 0,
         name: "Home",
         path: "/",
-        sections: [
-          {
-            name: "Section 1",
-            path: "/",
-          },
-          {
-            name: "Section 2",
-            path: "/services",
-          },
-        ],
       },
       {
+        _id: 3,
+        parent: 1,
+        name: "Section 1",
+        path: "/",
+      },
+      {
+        _id: 4,
+        parent: 1,
+        name: "Section 2",
+        path: "/services",
+      },
+      {
+        _id: 2,
+        parent: 0,
         name: "Page 2",
         path: "page2",
       },
@@ -62,6 +68,8 @@ class App extends Component {
   handleSearchVisibility = (searchToggle) => {
     this.setState({ searchToggle: !searchToggle });
   };
+
+  handleSearchKeyUp = (params) => {};
 
   render() {
     const { menu, slider, page, home, searchToggle, pageList } = this.state;
@@ -110,6 +118,8 @@ class App extends Component {
         <Search
           searchToggle={searchToggle}
           onCloseClick={this.handleSearchVisibility}
+          pageList={pageList}
+          onSearchKeyUp={this.handleSearchKeyUp}
         />
       </div>
     );
