@@ -6,7 +6,7 @@ import NotFound from "./pages/NotFound";
 import Header from "./components/Header/Header";
 import Masonry from "./components/Home/Masonry";
 import Services from "./components/Home/Services";
-
+import Search from "./components/Search/Search";
 import API from "./components/common/api";
 import "./App.scss";
 
@@ -16,6 +16,7 @@ class App extends Component {
     slider: [],
     page: null,
     home: null,
+    searchToggle: false,
   };
 
   async componentDidMount() {
@@ -38,13 +39,22 @@ class App extends Component {
     }
   }
 
+  handleSearchVisibility = (searchToggle) => {
+    this.setState({ searchToggle: !searchToggle });
+  };
+
   render() {
-    const { menu, slider, page, home } = this.state;
+    const { menu, slider, page, home, searchToggle } = this.state;
     if (!page || !home) return null;
     const [section1, section2] = home.sections;
     return (
       <div>
-        <Header menu={menu} slider={slider} />
+        <Header
+          menu={menu}
+          slider={slider}
+          searchToggle={searchToggle}
+          onSearchClick={this.handleSearchVisibility}
+        />
         <div className="container main-content">
           <Switch>
             <Route
@@ -77,6 +87,10 @@ class App extends Component {
             <Redirect to="/not-found" />
           </Switch>
         </div>
+        <Search
+          searchToggle={searchToggle}
+          onCloseClick={this.handleSearchVisibility}
+        />
       </div>
     );
   }

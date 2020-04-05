@@ -1,0 +1,25 @@
+.search {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 110;
+  height: 100vh;
+  background: #212424;
+  transition: all ease 0.3s;
+  transform: translateY(-100vh);
+  color: #fff;
+  &--open {
+    transform: translateY(0);
+  }
+}
+
+.close-icon-wrapper {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  svg {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
