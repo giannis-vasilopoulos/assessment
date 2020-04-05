@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Page from "./pages/Page";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header/Header";
+import Masonry from "./components/Home/Masonry";
 import API from "./components/common/api";
 
 import "./App.scss";
@@ -13,20 +14,23 @@ class App extends Component {
     menu: [],
     slider: [],
     page: null,
+    home: null,
   };
 
   async componentDidMount() {
     try {
-      const [menu, slider, page] = await Promise.all([
+      const [menu, slider, page, home] = await Promise.all([
         API.get(`menu`),
         API.get(`slider`),
         API.get(`page`),
+        API.get(`home`),
       ]);
 
       this.setState({
         menu: menu.data,
         slider: slider.data,
         page: page.data[0],
+        home: home.data[0],
       });
     } catch (err) {
       console.log(err);
@@ -34,22 +38,30 @@ class App extends Component {
   }
 
   render() {
-    const { menu, slider, page } = this.state;
+    const { menu, slider, page, home } = this.state;
+    if (!page || !home) return null;
+    const [section1, section2] = home.sections;
     return (
       <div>
         <Header menu={menu} slider={slider} />
         <div className="container main-content">
           <Switch>
-            {/* <Route
-             path="/products"
-             render={(props) => <Products sortBy="newest" {...props} />}
-            /> */}
             <Route
               path="/page2"
               render={(props) => <Page page={page} {...props} />}
             />
             <Route path="/not-found" component={NotFound} />
-            <Route path="/home" exact component={Home} />
+            <Route
+              path="/home"
+              exact
+              render={(props) => (
+                <Home
+                  title={home.description}
+                  children={<Masonry images={section1.images} />}
+                  {...props}
+                />
+              )}
+            />
             <Redirect to="/not-found" />
           </Switch>
         </div>
