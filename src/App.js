@@ -17,6 +17,26 @@ class App extends Component {
     page: null,
     home: null,
     searchToggle: false,
+    pageList: [
+      {
+        name: "Home",
+        path: "/",
+        sections: [
+          {
+            name: "Section 1",
+            path: "/",
+          },
+          {
+            name: "Section 2",
+            path: "/services",
+          },
+        ],
+      },
+      {
+        name: "Page 2",
+        path: "page2",
+      },
+    ],
   };
 
   async componentDidMount() {
@@ -44,7 +64,7 @@ class App extends Component {
   };
 
   render() {
-    const { menu, slider, page, home, searchToggle } = this.state;
+    const { menu, slider, page, home, searchToggle, pageList } = this.state;
     if (!page || !home) return null;
     const [section1, section2] = home.sections;
     return (

@@ -11,6 +11,55 @@
   &--open {
     transform: translateY(0);
   }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+  &__input-wrapper {
+    width: 100%;
+    position: relative;
+    input {
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid #333333;
+      width: 100%;
+      outline: 0;
+      height: 35px;
+      text-align: center;
+      padding-bottom: 5px;
+      font-size: 35px;
+      color: #fcfcfc;
+    }
+    svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 27px;
+      height: 27px;
+      cursor: pointer;
+    }
+  }
+  &__results {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+  }
+  &__results-list {
+    border: 3px solid #333333;
+    padding: 20px 15px;
+    font-size: 30px;
+    a {
+      color: #fcfcfc;
+      text-decoration: none;
+    }
+    ul {
+      padding-left: 25px;
+    }
+  }
 }
 
 .close-icon-wrapper {
